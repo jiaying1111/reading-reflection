@@ -24,13 +24,41 @@ body{
   /* overall page spacing + stable layout */
   .layout{
     display: grid;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 1fr 6fr;
+    grid-template-columns:1fr 4fr ;
+    grid-template-areas: 
+    "header header"
+    "aside main"
+    ;
     gap: 18px;
     padding: 24px;
+
+  }
+
+  .aside {
+    grid-area: aside;
+    border: 2px dashed grey;
+    padding: 20px;
+  }
+  
+  /* THIS is where gap should go */
+  .aside ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .aside li {
+    border: 1px solid grey;
+    padding: 2%;
   }
   
   /* title block spacing */
   .big_title{
+    grid-area: header;
     display: grid;
     grid-template-rows: auto auto;
     gap: 6px;
@@ -57,10 +85,15 @@ body{
     font-weight: 800;
   }
   
+
   /* main list */
   .container{
+    border: 2px solid gray;
+    grid-area: main;
     display: flex;
     flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
   }
   
   /* each week row */
@@ -69,7 +102,7 @@ body{
     grid-template-columns: 1fr 2fr 5fr;
     gap: 20px;
     padding: 18px 0;
-    border-top: 2px solid rgba(90,90,90,0.6);
+    border-bottom: 2px solid rgba(90,90,90,0.6);
     align-items: stretch;
   }
   
